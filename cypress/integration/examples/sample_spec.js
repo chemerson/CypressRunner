@@ -100,7 +100,9 @@ describe('Hello world', () => {
                           // if(cy.get("body > form > div.CookieBanner-close > img"))
                           //   cy.get('body > form > div.CookieBanner-close > img').click();
 
-                          cy.eyesCheckWindow(my_urls[url]);  
+                          cy.eyesCheckWindow(my_urls[url], {
+	                          sizeMode: 'viewport'
+                          });  
                         }  
 
                       }
