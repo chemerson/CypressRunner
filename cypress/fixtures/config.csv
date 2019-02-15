@@ -1,4 +1,5 @@
 Name,Value
-app name, my_demo
-test name, cypress_test
-batch name, cypress_demo
+app name, New York Marriott Marquis
+test name, New York Marriott Marquis
+batch name, New York Marriott Marquis
+match level, Strict

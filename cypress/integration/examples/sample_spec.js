@@ -1,13 +1,13 @@
 import '@applitools/eyes.cypress/commands'
 
 
-describe('Hello world', () => {
-  it('Cypress_demo', () => {
+describe('Cypress Applitools Demo', () => {
+  it('Cypress Demo', () => {
 
             var appName = "";
             var testName = "";
             var batchName = "";
-            var matchLevel  = "Strict";
+            var matchLevel  = "";
 
             cy.on('uncaught:exception', (err, runnable) => {
                 // returning false here prevents Cypress from
@@ -16,7 +16,6 @@ describe('Hello world', () => {
                 return false
             })
           
-
             // Cypress.Errors.onUncaughtException(false);
             cy.fixture("config.csv").then((config) => {
               
@@ -32,10 +31,9 @@ describe('Hello world', () => {
                   else if(current_config[0] == "test name")
                     testName = current_config[1];
                   else if(current_config[0] == "batch name")
-                    testName = current_config[1];
+                    batchName = current_config[1];
                   else if(current_config[0] == "match level" && current_config[1] != '')
                     matchLevel = current_config[1].trim();
-
               }
 
               if(batchName == "")
@@ -81,7 +79,7 @@ describe('Hello world', () => {
                     cy.fixture("urls.csv").then((urls) => {
 
                       var my_urls = urls.split('\n');
-
+                      
                       cy.eyesOpen({
                           appName: appName,
                           testName: testName,
@@ -95,19 +93,57 @@ describe('Hello world', () => {
                         if(my_urls[url] != '')
                         {
                           cy.log("******************** URL#" + url.toString() + "********************");
-                          cy.visit(my_urls[url]);
+                          cy.visit(my_urls[url], 
+                            {
+                              onLoad: (contentWindow) => {
 
-                          // if(cy.get("body > form > div.CookieBanner-close > img"))
-                          //   cy.get('body > form > div.CookieBanner-close > img').click();
+                               try {
 
-                          cy.eyesCheckWindow(my_urls[url], {
-	                          sizeMode: 'viewport'
+                                  function nativeSelector() {
+                                    var elements = contentWindow.document.querySelectorAll("body, body *");
+                                    var results = [];
+                                    var child;
+                                    for(var i = 0; i < elements.length; i++) {
+                                        child = elements[i].childNodes[0];
+                                        if(elements[i].hasChildNodes() && child.nodeType == 3) {
+                                            results.push(child);
+                                        }
+                                    }
+                                    return results;
+                                  }
+                                  var textnodes = nativeSelector(), _nv;
+
+                                  var r = 2; //Math.floor(Math.random() * 2);
+                              
+                                  switch(r) {
+                                    case 0 :
+                                      //contentWindow.document.querySelector("img:nth-child(1)").style.display = 'none';
+                                      for (var i = 0, len = textnodes.length; i<len; i++){
+                                        _nv = textnodes[i].nodeValue;
+                                        textnodes[i].nodeValue = _nv.replace('.','<div>developer stub</div>');
+                                      }
+                                      break;
+                                    case 1 : 
+                                      for (var i = 0, len = textnodes.length; i<len; i++){
+                                        _nv = textnodes[i].nodeValue;
+                                        textnodes[i].nodeValue = _nv.replace('o','0');
+                                      }
+                                      break;
+                                  }
+
+                                } catch (err) {}
+                              },
+                              failOnStatusCode: false
+                          })
+                          
+                          cy.eyesCheckWindow({
+                            tag: my_urls[url],
+	                          sizeMode: 'viewport'// 'viewport' //'full-page'
                           });  
                         }  
 
                       }
                       cy.eyesClose(false);
-
                 });
              });
           });
