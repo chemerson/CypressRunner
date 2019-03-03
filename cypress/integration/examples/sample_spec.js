@@ -1,5 +1,4 @@
-import '@applitools/eyes.cypress/commands'
-
+import '@applitools/eyes-cypress/commands'
 
 describe('Cypress Applitools Demo', () => {
   it('Cypress Demo', () => {
@@ -14,6 +13,24 @@ describe('Cypress Applitools Demo', () => {
                 // failing the test
                 // debugger
                 return false
+            })
+
+            describe('Hooks', function() {
+              before(function() {
+                // runs once before all tests in the block
+              })
+            
+              after(function() {
+                // runs once after all tests in the block
+              })
+            
+              beforeEach(function() {
+                // runs before each test in the block
+              })
+            
+              afterEach(function() {
+                // runs after each test in the block
+              })
             })
           
             // Cypress.Errors.onUncaughtException(false);
@@ -85,10 +102,11 @@ describe('Cypress Applitools Demo', () => {
                           testName: testName,
                           browser: env_array,
                           batchName: batchName,
-                          matchLevel: matchLevel
+                          matchLevel: matchLevel,
+
                         });
 
-                      for(var url = 1; url < my_urls.length; url++){
+                      for(var url = 1; url < my_urls.length; url++){  
                         
                         if(my_urls[url] != '')
                         {
@@ -111,9 +129,14 @@ describe('Cypress Applitools Demo', () => {
                                     }
                                     return results;
                                   }
+
+                                  var height = document.body.scrollHeight;        
+                                  for(i = 0 ; i < height/800 ; i++)
+                                      contentWindow.scrollBy(0,800);
+
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = 2; //Math.floor(Math.random() * 2);
+                                  var r = 2; //Math.floor(Math.random() * 5);
                               
                                   switch(r) {
                                     case 0 :
@@ -135,12 +158,15 @@ describe('Cypress Applitools Demo', () => {
                               },
                               failOnStatusCode: false
                           })
-                          
+
+                          cy.wait(3000);
+
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
-	                          sizeMode: 'viewport'// 'viewport' //'full-page'
-                          });  
-                        }  
+	                          sizeMode: 'full-page'// 'viewport' //'full-page'
+                          });
+                          cy.wait(1000);  
+                        }                       
 
                       }
                       cy.eyesClose(false);

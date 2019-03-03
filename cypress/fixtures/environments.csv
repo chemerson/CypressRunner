@@ -1,2 +1,3 @@
 Browser,Viewport,deviceName,screenOrientation
-chrome,800-600
+chrome,1600-900
+firefox,1600-900

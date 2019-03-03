@@ -1,3 +1,5 @@
 module.exports = {
-	concurrency: 500
+	concurrency: 500,
+	saveDebugData: false,
+	showLogs: true
 }
