@@ -136,7 +136,7 @@ describe('Cypress Applitools Demo', () => {
 
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = 2; //Math.floor(Math.random() * 5);
+                                  var r = Math.floor(Math.random() * 5);
                               
                                   switch(r) {
                                     case 0 :
@@ -159,7 +159,7 @@ describe('Cypress Applitools Demo', () => {
                               failOnStatusCode: false
                           })
 
-                          cy.wait(3000);
+                          cy.wait(10000);
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
