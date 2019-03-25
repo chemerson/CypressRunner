@@ -72,8 +72,6 @@ describe('Cypress Applitools Demo', () => {
                         cy.log("Environment #" + i.toString() + ": " + deviceName + " ");
 
                       }                      
-
-
                     }
 
                     cy.fixture("urls.csv").then((urls) => {
