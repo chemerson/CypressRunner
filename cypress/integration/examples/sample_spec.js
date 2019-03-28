@@ -157,13 +157,13 @@ describe('Cypress Applitools Demo', () => {
                               failOnStatusCode: false
                           })
 
-                          cy.wait(10000);
+                          cy.wait(30000);
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
 	                          sizeMode: 'full-page'// 'viewport' //'full-page'
                           });
-                          cy.wait(1000);  
+                      
                         }                       
 
                       }
