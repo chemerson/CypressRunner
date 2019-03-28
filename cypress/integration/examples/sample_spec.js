@@ -115,7 +115,7 @@ describe('Cypress Applitools Demo', () => {
                             {
                               onLoad: (contentWindow) => {
 
-                               try {
+                               //try {
 
                                   function nativeSelector() {
                                     var elements = contentWindow.document.querySelectorAll("body, body *");
@@ -124,7 +124,7 @@ describe('Cypress Applitools Demo', () => {
                                     for(var i = 0; i < elements.length; i++) {
                                         child = elements[i].childNodes[0];
                                         if(elements[i].hasChildNodes() && child.nodeType == 3) {
-                                            results.push(child);
+                                          results.push(child);
                                         }
                                     }
                                     return results;
@@ -136,7 +136,7 @@ describe('Cypress Applitools Demo', () => {
 
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = Math.floor(Math.random() * 5);
+                                  var r = 3;//Math.floor(Math.random() * 3);
                               
                                   switch(r) {
                                     case 0 :
@@ -154,12 +154,18 @@ describe('Cypress Applitools Demo', () => {
                                       break;
                                   }
 
-                                } catch (err) {}
+                               // } catch (err) {
+
+                               // }
                               },
                               failOnStatusCode: false
                           })
 
-                          cy.wait(10000);
+                          cy.wait(3000);
+
+                          cy.get("a:nth-of-type(3)").scrollIntoView()
+                                .should("be.visible");
+                          
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
