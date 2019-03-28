@@ -89,8 +89,6 @@ describe('Cypress Applitools Demo', () => {
                         cy.log("Environment #" + i.toString() + ": " + deviceName + " ");
 
                       }                      
-
-
                     }
 
                     cy.fixture("urls.csv").then((urls) => {
@@ -161,17 +159,13 @@ describe('Cypress Applitools Demo', () => {
                               failOnStatusCode: false
                           })
 
-                          cy.wait(3000);
-
-                          cy.get("a:nth-of-type(3)").scrollIntoView()
-                                .should("be.visible");
-                          
+                          cy.wait(30000);
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
 	                          sizeMode: 'full-page'// 'viewport' //'full-page'
                           });
-                          cy.wait(1000);  
+                      
                         }                       
 
                       }
