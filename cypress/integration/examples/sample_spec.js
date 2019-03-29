@@ -113,7 +113,7 @@ describe('Cypress Applitools Demo', () => {
                             {
                               onLoad: (contentWindow) => {
 
-                               //try {
+                               try {
 
                                   function nativeSelector() {
                                     var elements = contentWindow.document.querySelectorAll("body, body *");
@@ -134,7 +134,7 @@ describe('Cypress Applitools Demo', () => {
 
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = 3;//Math.floor(Math.random() * 3);
+                                  var r = Math.floor(Math.random() * 3);
                               
                                   switch(r) {
                                     case 0 :
@@ -152,14 +152,14 @@ describe('Cypress Applitools Demo', () => {
                                       break;
                                   }
 
-                               // } catch (err) {
+                                } catch (err) {
 
-                               // }
+                                }
                               },
                               failOnStatusCode: false
                           })
 
-                          cy.wait(30000);
+                          cy.wait(10000);
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
