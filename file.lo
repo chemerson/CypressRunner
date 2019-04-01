@@ -3220,3 +3220,4 @@
     at /Users/christopheremerson/Projects/Cypress/CypressRunner/node_modules/@applitools/eyes-cypress/src/plugin/waitForBatch.js:25:13
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:188:7)
+The automation client disconnected. Cannot continue running tests.
