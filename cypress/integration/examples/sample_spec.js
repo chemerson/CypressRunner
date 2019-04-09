@@ -157,7 +157,8 @@ describe('Cypress Applitools Demo', () => {
                               failOnStatusCode: false
                           })
 
-                          cy.wait(30000);
+                        
+                          //try{cy.get('#agree').click();}catch{}
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
