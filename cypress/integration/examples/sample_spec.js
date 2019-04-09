@@ -122,7 +122,7 @@ describe('Cypress Applitools Demo', () => {
                                     for(var i = 0; i < elements.length; i++) {
                                         child = elements[i].childNodes[0];
                                         if(elements[i].hasChildNodes() && child.nodeType == 3) {
-                                            results.push(child);
+                                          results.push(child);
                                         }
                                     }
                                     return results;
@@ -134,7 +134,7 @@ describe('Cypress Applitools Demo', () => {
 
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = Math.floor(Math.random() * 5);
+                                  var r = Math.floor(Math.random() * 3);
                               
                                   switch(r) {
                                     case 0 :
@@ -152,7 +152,9 @@ describe('Cypress Applitools Demo', () => {
                                       break;
                                   }
 
-                                } catch (err) {}
+                                } catch (err) {
+
+                                }
                               },
                               failOnStatusCode: false
                           })
