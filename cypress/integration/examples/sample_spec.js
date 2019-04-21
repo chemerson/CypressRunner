@@ -127,14 +127,9 @@ describe('Cypress Applitools Demo', () => {
                                     }
                                     return results;
                                   }
-
-                                  var height = document.body.scrollHeight;        
-                                  for(i = 0 ; i < height/800 ; i++)
-                                      contentWindow.scrollBy(0,800);
-
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = 2; //Math.floor(Math.random() * 3);
+                                  var r = 3; //Math.floor(Math.random() * 2);
                               
                                   switch(r) {
                                     case 0 :
@@ -157,16 +152,24 @@ describe('Cypress Applitools Demo', () => {
                                 }
                               },
                               failOnStatusCode: false
-                          })
+                          });
 
-                        
-                          //try{cy.get('#agree').click();}catch{}
+            
+                          cy.wait(10000);
+                         // cy.eyesCheckWindow({
+                         //   tag: my_urls[url],
+                         //   sizeMode: 'full-page',// 'viewport' //'full-page'
+                         // });
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
-	                          sizeMode: 'full-page'// 'viewport' //'full-page'
+                            sizeMode: 'selector',
+                            selector: {
+                              type: 'css',
+                              selector: '#layout-region-top-content > div > div' // or '//button'
+                            }
                           });
-                      
+               
                         }                       
 
                       }
@@ -178,4 +181,18 @@ describe('Cypress Applitools Demo', () => {
 });
 
   
-
+/*
+function scrollPage(){
+  let pageLen = browser.execute('var body = document.body, \
+  html = document.documentElement; \
+  return Math.max( body.scrollHeight, body.offsetHeight, \
+          html.clientHeight, html.scrollHeight, html.offsetHeight );');
+  const sectionLen = 400;
+  let sections = pageLen.value/sectionLen; 
+  for(let i=1;i<sections;i++){
+      browser.scroll(0,sectionLen*i);
+      browser.pause(500);
+  }
+  browser.scroll(0,0);
+}
+*/

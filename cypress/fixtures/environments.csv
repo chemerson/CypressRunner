@@ -1,12 +1,21 @@
 Browser,Viewport,deviceName,screenOrientation
-chrome,1600-900
-firefox,1600-900
 ,,iPhone X,portrait
 ,,Nexus 4,portrait
 ,,iPad Pro,portrait
+,,iPhone X,landscape
+,,Nexus 4,landscape
+,,iPad Pro,landscape
+chrome,1600-900
+firefox,1600-900
 chrome,800-600
 firefox,800-600
 chrome,2400-1200
 firefox,2400-1200
 ie,2400-1200
 edge,2400-1200
+chrome,2400-900
+firefox,2400-900
+ie,1024-1200
+edge,1024-1200
+chrome,1024-900
+firefox,1024-900
