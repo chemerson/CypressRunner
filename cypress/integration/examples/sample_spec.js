@@ -129,7 +129,7 @@ describe('Cypress Applitools Demo', () => {
                                   }
                                   var textnodes = nativeSelector(), _nv;
 
-                                  var r = 3; //Math.floor(Math.random() * 2);
+                                  var r = 3; Math.floor(Math.random() * 2);
                               
                                   switch(r) {
                                     case 0 :
