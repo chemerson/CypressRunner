@@ -155,20 +155,22 @@ describe('Cypress Applitools Demo', () => {
                           });
 
             
-                          cy.wait(10000);
-                         // cy.eyesCheckWindow({
-                         //   tag: my_urls[url],
-                         //   sizeMode: 'full-page',// 'viewport' //'full-page'
-                         // });
+                          cy.contains('Accept').click({ force: true });  //clear 
 
+                         // cy.wait(10000);
                           cy.eyesCheckWindow({
                             tag: my_urls[url],
-                            sizeMode: 'selector',
-                            selector: {
-                              type: 'css',
-                              selector: '#layout-region-top-content > div > div' // or '//button'
-                            }
+                            sizeMode: 'full-page'// 'viewport' //'full-page'
                           });
+
+                         // cy.eyesCheckWindow({
+                         //   tag: my_urls[url],
+                         //   sizeMode: 'selector',
+                         //   selector: {
+                         //     type: 'css',
+                         //     selector: '#layout-region-top-content > div > div' // or '//button'
+                         //   }
+                         // });
                
                         }                       
 
