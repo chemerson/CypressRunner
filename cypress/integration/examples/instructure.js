@@ -129,7 +129,7 @@ describe('Cypress Applitools Demo', () => {
                                   }
 
                                   var textnodes = nativeSelector(), _nv;
-                                  var r = Math.floor(Math.random() * 3);
+                                  var r = 4; Math.floor(Math.random() * 3);
                               
                                   switch(r) {
                                     case 1 :
@@ -153,13 +153,21 @@ describe('Cypress Applitools Demo', () => {
                               },
                               failOnStatusCode: false
                           });
-
-            
-                         // cy.contains('Accept').click({ force: true });  //clear cookie disclaimers
+                        
+                          cy.get('[data-qa="login_uid"]', { timeout: 20000 }).type('admin');
+                          cy.get('[type="password"]').type('password');
 
                           cy.eyesCheckWindow({
                             tag: my_urls[url]
                           });
+                          
+                          cy.get('[data-capybara="login_button"]').click();
+
+                          cy.get('[data-qa="peopleHeader"]', { timeout: 20000 }).eyesCheckWindow({
+                            tag: "Home Page",
+                            sizeMode: "full-page"
+                          });
+                          
 
                           sizeMode: 'viewport'// 'viewport' //'full-page'
 
