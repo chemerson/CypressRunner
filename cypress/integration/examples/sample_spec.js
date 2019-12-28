@@ -1,5 +1,7 @@
 import '@applitools/eyes-cypress/commands'
 
+  /// <reference types="@applitools/eyes-cypress" />
+  
 describe('Cypress Applitools Demo', () => {
   it('Cypress Demo', () => {
 

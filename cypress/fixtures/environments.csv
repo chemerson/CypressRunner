@@ -5,19 +5,21 @@ Browser,Viewport,deviceName,screenOrientation
 ,,iPhone X,landscape
 ,,Nexus 4,landscape
 ,,iPad Pro,landscape
-chrome,1600-900
-firefox,1600-900
-chrome,800-600
-firefox,800-600
-chrome,2400-1200
-firefox,2400-1200
-edge,2400-1200
-chrome,2400-900
-firefox,2400-900
-edge,1024-1200
-chrome,1024-900
-firefox,1024-900
-chrome,800-400
-firefox,800-400
-chrome,700-400
-firefox,700-400
+ie10,1024-2400
+ie11,1024-2400
+chrome,1600-2400
+firefox,1600-2400
+chrome,800-2400
+firefox,800-2400
+chrome,2400-2400
+firefox,2400-2400
+edge,2400-2400
+chrome,2400-2400
+firefox,2400-2400
+edge,1024-2400
+chrome,1024-2400
+firefox,1024-2400
+chrome,800-2400
+firefox,800-2400
+chrome,700-2400
+firefox,700-2400

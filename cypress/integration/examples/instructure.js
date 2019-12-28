@@ -1,3 +1,4 @@
+  /// <reference types="@applitools/eyes-cypress" />
 import '@applitools/eyes-cypress/commands'
 
 describe('Cypress Applitools Demo', () => {
@@ -33,6 +34,8 @@ describe('Cypress Applitools Demo', () => {
               })
             })
           
+            cy.viewport(1600, 1200); 
+
             // Cypress.Errors.onUncaughtException(false);
             cy.fixture("config.csv").then((config) => {
               
@@ -158,18 +161,32 @@ describe('Cypress Applitools Demo', () => {
                           cy.get('[type="password"]').type('password');
 
                           cy.eyesCheckWindow({
-                            tag: my_urls[url]
+                            tag: my_urls[url],
+                            target: 'window'
                           });
                           
                           cy.get('[data-capybara="login_button"]').click();
 
                           cy.get('[data-qa="peopleHeader"]', { timeout: 20000 }).eyesCheckWindow({
                             tag: "Home Page",
-                            sizeMode: "full-page"
+                            target: 'window',
+                            fully: true
                           });
-                          
 
-                          sizeMode: 'viewport'// 'viewport' //'full-page'
+                          cy.get('[data-qa="toggleProfilePanel"]').click();
+                          
+                          cy.get('[data-qa="logoutButton"]').eyesCheckWindow({
+                            tag: "Profile Panel",
+                            target: 'window'
+                          });
+
+                          cy.get('[data-qa="logoutButton"]').click();
+
+                          cy.get('[data-qa="loginButton"]', { timeout: 20000 }).eyesCheckWindow({
+                            tag: "Signed Out",
+                            target: 'window'
+                          });
+
 
                          // cy.eyesCheckWindow({
                          //   tag: my_urls[url],
